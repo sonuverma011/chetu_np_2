@@ -1,0 +1,140 @@
+
+            ------------------------------------------------------------------------------------------------------------------
+                                                 Useful Ubuntu Commands ------------------------------------------------------------------------------------------------------------------------------------------                          
+
+
+How to create directory/folder: 
+mkdir path/folder_name or "if denied access": sudo mkdir path/folder_name
+
+How to create any file: 
+touch path/file_name.file_ext 
+
+How to delete any folder:
+sudo delete rm -rf folder_path
+
+How to move the folder:
+ sudo mv magento2-2.3 /var/www/html/
+
+How to rename any directory:
+gvfs-move /home/user/oldname /home/user/newname
+
+How to Grant all Permission for a folder:
+sudo chmod -R 777(755) folder_path
+
+How to grant permission to allow creating the directories:
+sudo chown -R $USER:$USER /path [ path of the folder you wanna give permission ]
+
+How to rename any folder:
+gvfs-move /home/user/oldname /home/user/newname
+
+How to check status:
+sudo systemctl status apache2  { to check the status of the apache2}
+
+How to restart/start/stop apache2/mysql/elasticsearch/any_other : 
+sudo systemctl restart/start/stop apache2/mysql/elasticsearch .service
+
+sudo apt update: To auto update and configuration. Prefered before the installation of any file.
+sudo apt install xz : to install xz
+
+How to enable or disable the static content signing in magento 2:
+bin/magento config:set dev/static/sign <1 or 0>
+
+How To Set Up Apache Virtual Hosts on Ubuntu 20.04 :
+
+1. Creating the directory in var/www/html/____  Using: "sudo mkdir var/www/html/dir_name". 
+	In this dir the executable file will be created.
+	Example : var/www/html/dir_name/index.html. Then Create the file for example index.html 
+	Using: "sudo touch var/www/html/dir_name/index.html"
+	Then write the content of that exectable file (index.html)
+	Using: sudo nano var/www/html/dir_name/index.html
+	Save that file with [ CTRL + O -> then ENTER -> then CTRL + X ], now index.html is saved.
+	
+2. 
+
+
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    ServerName linkedin.local
+    ServerAlias www.linkedin.local
+    DocumentRoot /var/www/html/linkedin
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+
+
+
+					
+					
+php guide : 
+				[ Enabling the extensions required in magento 2 ]			
+sudo apt install php7.4 libapache2-mod-php7.4 php7.4-common php7.4-gmp php7.4-curl php7.4-soap php7.4-bcmath php7.4-intl php7.4-mbstring php7.4-xmlrpc  php7.4-mysql php7.4-gd php7.4-xml php7.4-cli php7.4-zip
+
+
+          ---------------------------------------------------------------------------------------------------------------------
+                                                     Magneto Guide
+          ---------------------------------------------------------------------------------------------------------------------
+
+magento install " admin url : admin_1obksj   Magento ID :ID: MAG005869419  reg. email: abhijeetk@chetu.com	Pass: Magento@1234
+						
+				[ Magento Installation Command ]
+sudo php bin/magento setup:install --base-url=http://localhost/magento2 --db-host=localhost --db-name=magento2 --db-user=root --db-password=Chetu@123 --admin-firstname=admin --admin-lastname=admin --admin-email=abhijeetk@chetu.com --admin-user=admin --admin-password=admin123 --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1
+
+How to Enable the disabled admin user in magento 2:  php bin/magento admin:user:unlock ADMINUSERNAME
+
+Or jump into bin directory from Magento root: cd bin/
+and then run the command: php magento admin:user:unlock ADMINUSERNAME
+
+
+(public key)username : c387203d7fc66df9bd71eefb0b662b2e
+
+(private key) password :1a81e1f055604eed848c0873ac8981a3
+
+magento admin:
+url : http://localhost/magento2/admin_1obksj
+Admin@123
+abhijeet
+
+How to deploy sampledata in magento 2 using composer <public_key><private_key>:
+1. Make sure you are  in developer mode, Use command to set dev mode: sudo php bin/magento deploy:mode:set developer 
+ 									sudo php bin/magento cache:clean
+ 									
+2. Using the composer to install sampledata using keys:	sudo composer config http-basic.repo.magento.com <public_key> <private_key> 
+
+3. Update the composer : sudo composer update
+4.sudo composer config repositories.magento composer https://repo.magento.com
+5.sudo php bin/magento sampledata:deploy
+
+How to Create admin account in magento:
+Use the command : 
+php bin/magento admin:user:create 
+--admin-user="abhijeet" 
+--admin-password="Admin@123"
+--admin- email="admin@sample.com" 
+--admin-firstname="Abhijeet" 
+--admin-lastname="Kumar"
+
+
+
+  Task 😫️: [ Display Custom Form Data in Front-end Table by Fetching from Db Custom Table 🤔️]
+   Reference Link : https://www.thecoachsmb.com/display-data-from-database-on-frontend-in-magento2/
+                    https://meetanshi.com/blog/display-table-data-magento-2/
+
+  Task 😐️: [ Add Action (Edit and Delete in Form) ☹️]
+
+	-----------------------------------------------------------------------------------------------------------------------
+                                                   MySql Guide:                                                                         -------------------------------------------------------------------------------------------------------------------------------------                                           
+
+
+user: root , Pass: Chetu@123 		
+       
+
+https://bsscommerce.com/confluence/how-to-create-insert-data-into-the-table-in-magento-2/
+https://developer.adobe.com/commerce/php/development/components/declarative-schema/configuration/
+https://meetanshi.com/blog/display-table-data-magento-2/
+https://magento.stackexchange.com/questions/222423/how-to-create-a-frontend-form-and-save-the-fields-data-into-database-in-magento
+https://magento.stackexchange.com/questions/274903/insert-update-values-in-existing-custom-table-and-select-values-from-that-table
+https://magento.stackexchange.com/questions/175831/how-to-delete-a-custom-table-entry-by-clicking-a-delete-button-in-a-phtml-file-i
+
+
+					
